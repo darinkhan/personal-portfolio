@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import { Route, Switch } from "react-router";
+import Container from "@material-ui/core/Container";
+// Pages:
+import TempPage from "./pages/TempPage.js";
+import Main from "./pages/Main";
+import MyWork from "./pages/MyWork";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+class App extends Component {
+  render() {
+    return(
+      <Container>
+        <Switch>
+          <Route exact path="/">
+            <TempPage />
+          </Route>
+          <Route exact path="/about-me">
+            <Main />
+          </Route>
+          <Route exact path="my-work">
+            <MyWork />
+          </Route>
+        </Switch>
+      </Container>
   );
+  }
 }
 
 export default App;
